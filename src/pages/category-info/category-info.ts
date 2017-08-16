@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ShareService } from '../services/ShareService';
+import { CartProvider } from '../../providers/cart/cart';
+import { AlertController } from 'ionic-angular';
+
+
 
 /**
  * Generated class for the CategoryInfoPage page.
@@ -16,10 +20,39 @@ import { ShareService } from '../services/ShareService';
 })
 export class CategoryInfoPage {
 	data : Object = [];
-  	constructor(public navCtrl: NavController, public navParams: NavParams,private shareService: ShareService) {
+	asd : any ;
+  	constructor(public navCtrl: NavController, public navParams: NavParams,private shareService: ShareService, public cartProvider: CartProvider, public alertCtrl: AlertController ) {
   		this.data = this.navParams.data;
   		console.log(this.data);
   	}
+ 
+  	addItem(data){
+  		let confirm = this.alertCtrl.create({
+			title: 'Cart',
+			message: 'Do you want to add this order?',
+	      	buttons: [
+		        {
+					text: 'Disagree',
+					handler: () => {
+						console.log('Disagree clicked');
+					}
+		        },
+		        {
+		          text: 'Agree',
+		          handler: () => {
+		            this.cartProvider.addCartItem(data);
+		          }
+		        }
+	      	]
+	    });
+  
+    	confirm.present();
+  		
+  	}
+
+
+
+  	
 
   	
 

@@ -6,13 +6,16 @@
         <ion-title>{{data.category_name}}</ion-title>
     </ion-navbar>
 </ion-header>
-<ion-content> 
+<ion-content class="catergory-info-contents"> 
 	<ion-card ion-item *ngFor="let item of data.list">
 		<img src="{{item.img_path}}"/>
 		<ion-card-content>
 			<ion-card-title>{{item.name}}</ion-card-title>
 			<p>{{item.descirption}}</p>
 			<p>{{item.price}}</p>
+			<button ion-button color="secondary" class="cartBtns"  (click)=addItem(item)>
+				Add to Cart  <ion-icon name="cart"></ion-icon>
+ 			</button>
 		</ion-card-content>
 	</ion-card>
 </ion-content>

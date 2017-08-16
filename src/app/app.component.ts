@@ -7,6 +7,7 @@ import { ListPage } from '../pages/list/list';
 import { CategoryPage } from '../pages/category/category';
 import { CategoryInfoPage } from '../pages/category-info/category-info';
 import { TestPage } from '../pages/test/test';
+import { CartPage } from '../pages/cart/cart';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -20,7 +21,7 @@ export class MyApp {
 
   // make HelloIonicPage the root (or first) page
   rootPage = CategoryPage;
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, icon:string}>;
 
   constructor(
     public platform: Platform,
@@ -32,8 +33,8 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'Category', component: CategoryPage },
-      // { title: 'My First List', component: ListPage }
+      { title: 'Category', component: CategoryPage, icon:'md-list-box' },
+      { title: 'Cart', component: CartPage, icon:'md-cart' }
     ];
   }
 

@@ -3,7 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { CategoryInfoPage } from '../category-info/category-info';
 import { ShareService } from '../services/ShareService';
-
+import { CartProvider } from '../../providers/cart/cart';
 /**
  * Generated class for the CategoryPage page.
  *
@@ -66,7 +66,7 @@ export class CategoryPage {
         
     ];
 
-  	constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController) {
+  	constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController,public cartProvider: CartProvider) {
   	    console.log(this.categoryData);
   	}
 
@@ -107,6 +107,10 @@ export class CategoryPage {
 
     showCategoryInfo(data){
         this.navCtrl.push(CategoryInfoPage, data);
+    }
+
+    showCartItems(){
+        this.cartProvider.showCartItems();
     }
 
 }
