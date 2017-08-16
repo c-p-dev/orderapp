@@ -1,0 +1,18 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>{{data.category_name}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content> 
+	<ion-card ion-item *ngFor="let item of data.list">
+		<img src="{{item.img_path}}"/>
+		<ion-card-content>
+			<ion-card-title>{{item.name}}</ion-card-title>
+			<p>{{item.descirption}}</p>
+			<p>{{item.price}}</p>
+		</ion-card-content>
+	</ion-card>
+</ion-content>

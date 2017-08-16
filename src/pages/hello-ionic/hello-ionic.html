@@ -1,0 +1,18 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Categories</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-card ion-item *ngFor="let item of items" >
+		<div class="div-img">
+			<img src="{{item.img}}" alt="" (click)="showConfirm()">
+		</div>
+	    
+	   <!--  <div class="card-title">São Paulo</div>
+	    <div class="card-subtitle">41 Listings</div> -->
+  	</ion-card>
+</ion-content>

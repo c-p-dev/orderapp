@@ -1,0 +1,16 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Categories</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="card-background-page"> 
+    <ion-card ion-item *ngFor="let item of categoryData">
+        <img src="{{item.img_path}}" alt="" (click)="showCategoryInfo(item)">
+        <div class="card-title">{{item.category_name}}</div>
+        <div class="card-subtitle">{{item.list_number}} Listings</div>
+    </ion-card>
+</ion-content>
+
