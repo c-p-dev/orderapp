@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+// import { NavController, NavParams } from 'ionic/ionic';
+import { CategoryInfoPage } from '../../pages/category-info/category-info';
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -10,6 +12,7 @@ export class CartProvider {
 	}
 
 	showCartItems(){
+		// this.navCtrl.push(CategoryInfoPage);
 		console.log(this.cart);
 	}
 
@@ -20,7 +23,13 @@ export class CartProvider {
 
 	removeCartItem(data){
 		console.log(data);
+		console.log(this.cart);
+		this.cart.splice(data, 1);
 	}
+
+
+
+
 
 
 

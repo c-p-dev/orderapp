@@ -12,7 +12,7 @@
 		<ion-card-content>
 			<ion-card-title>{{item.name}}</ion-card-title>
 			<p>{{item.descirption}}</p>
-			<p>{{item.price}}</p>
+			<p>Php {{item.price | number:'1.2-2'}}</p>
 			<button ion-button color="secondary" class="cartBtns"  (click)=addItem(item)>
 				Add to Cart  <ion-icon name="cart"></ion-icon>
  			</button>

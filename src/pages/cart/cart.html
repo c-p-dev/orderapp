@@ -6,11 +6,51 @@
         <ion-title>My Cart</ion-title>
         <ion-buttons end>
             <button ion-button end class="cart-btn">
-                <ion-icon name="ios-cart-outline"></ion-icon>
+                <ion-icon name="ios-cart-outline" (click)="showCartItems()"></ion-icon>
             </button>
         </ion-buttons> 
     </ion-navbar>
 </ion-header>
-<ion-content class="card-background-page"> 
-   
+<ion-content class="cartlist-background-page "> 
+    <h3 text-center>Total Amout</h3>
+    <div class="content">
+        <ion-row>
+            <ion-col col-4>
+                Item Count
+            </ion-col>
+            <ion-col col-4 text-center> 
+                {{cart.length}}
+            </ion-col>
+            <ion-col col-4 text-center>
+                Php {{ total | number:'1.2-2'}}
+            </ion-col>
+        </ion-row>
+    </div>
+    <h3 text-center>Cart List</h3>
+    <ion-list>
+        <button ion-item *ngFor="let item of cart; let i = index"   (click)="removeItem(i)">
+            <ion-grid>
+                <ion-row>
+                    <ion-col col-6>
+                        {{item.name}}
+                    </ion-col>
+                    <ion-col col-4 text-right> 
+                        Php {{item.price | number:'1.2-2'}} 
+                    </ion-col>
+                    <ion-col col-2 text-right >
+                        <ion-icon name="trash" ></ion-icon>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </button>
+    </ion-list>
+    <h3 text-center>Location</h3>
+    <ion-content class="map-content">
+        <div #map id="map"></div>  
+    </ion-content>
+    <div class="sum">
+        <button ion-button color="secondary" class="cartBtns" (click)="processOrder()" >
+            Order Now <ion-icon name="cart"></ion-icon>
+        </button>
+    </div>
 </ion-content>

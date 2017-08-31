@@ -17,6 +17,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { CartProvider } from '../providers/cart/cart';
 import { HttpModule } from '@angular/http';
+import { NumberProvider } from '../providers/number/number';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { HttpModule } from '@angular/http';
     SplashScreen,
     ShareService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    CartProvider
+    CartProvider,
+    NumberProvider
   ]
 })
 export class AppModule {}
